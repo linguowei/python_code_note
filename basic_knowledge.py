@@ -2,15 +2,17 @@
 # @Author: linguowei
 # @Date:   2017-06-22 10:13:40
 # @Last Modified by:   linguowei
-# @Last Modified time: 2017-06-22 11:10:40
+# @Last Modified time: 2017-06-26 14:39:20
 
 message = 'hello_world'
 for item in range(1,20):
 	print(item)
 print(message.title())
 
-list = [1,2,3,4]
+# 列表
+items = [1,2,3,4]
 event_number = list(range(2,20,4))
+print(items)
 print(event_number)
 
 squares = []
@@ -44,21 +46,97 @@ friend_foods = my_foods[:]
 print(my_foods)
 print(friend_foods)
 
+# 元组(不可变列表)
+dimensions = (200,50)
+print(dimensions[0])
+print(dimensions[1])
 
+# 遍历元组
+for dimension in dimensions:
+	print(dimension)
 
+# 字典
+alien_0 = {
+	'color': 'green', 
+	'points': 5
+}
+print(alien_0['color'])
+print(alien_0['points'])
 
+# 删除字典中的值
+del alien_0['color']
+print(alien_0)
 
+# 遍历字典
+user_0 = {
+	'username': 'efermi',
+	'first': 'enrico',
+	'last': 'fermi',
+}
+for key,value in user_0.items():
+	print("\nKey:"+key)
+	print("Value:"+value)
 
+# 遍历字典中的键
+favorite_languages = {
+	'jen': 'python',
+	'sarah': 'c',
+	'edward': 'ruby',
+	'phil': 'python'
+}
 
+for name in favorite_languages.keys():
+	print(name)
 
+#接收用户输入
+# message = input("请输入一些内容并按回车试试")
+# print(message)
 
+# 定义函数
+def green_user():
+	""" 这里的注释被称为文档字符串的注释,Python使用它们来生成有关程序中函数的文档 """
+	print('Hello!')
 
+green_user()
 
+# 位置实参
+def describe_pet(animal_type, pet_name):
+	""" 显示宠物信息 """
+	print("\nI have a" + animal_type + ".")
+	print("My" + animal_type  +"'s name is" +  pet_name.title()+".")
 
+describe_pet('hamster','harry')
 
+# 关键字实参
+def descript_pet(animal_type,pet_name):
+	""" 显示宠物信息 """
+	print("\nI have a" + animal_type + ".")
+	print("My" + animal_type  +"'s name is" +  pet_name.title()+".")
 
+descript_pet(animal_type="hamster", pet_name="harry")
 
+# 函数参数默认值
+def descript_pet(pet_name, animal_type="dog"):
+	""" 显示宠物信息 """
+	print("\nI have a " + animal_type + ".")
+	print("My " + animal_type  +"'s name is" +  pet_name.title()+".")
 
+descript_pet(pet_name="willie")
+
+# 类class
+class Dog():
+	def __init__(self,name,age):
+		""" 初始化属性name和age """
+		self.name = name
+		self.age = age
+
+	def sit(self):
+		print(self.name.title() + "is now sitting")
+	def roll_over(self):
+		print(self.age.title() + "rolled over!")
+
+my_dog = Dog('willie',6)
+print(my_dog.name,my_dog.age)
 
 
 
