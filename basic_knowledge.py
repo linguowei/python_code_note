@@ -2,7 +2,7 @@
 # @Author: linguowei
 # @Date:   2017-06-22 10:13:40
 # @Last Modified by:   linguowei
-# @Last Modified time: 2017-06-26 14:39:20
+# @Last Modified time: 2017-06-27 14:18:24
 
 message = 'hello_world'
 for item in range(1,20):
@@ -137,6 +137,98 @@ class Dog():
 
 my_dog = Dog('willie',6)
 print(my_dog.name,my_dog.age)
+
+# 继承
+class Car():
+	def __init__(self,make,model,year):
+		self.make = make
+		self.model = model
+		self.year = year
+		self.odometer_reading = 0
+
+	def get_descriptive_name(self):
+		long_name = str(self.year) + '' + self.make + '' + self.model
+		return long_name.title()
+
+	def read_odometer(self):
+		print("This car has " + str(self.odometer_reading) + " miles on it.")
+
+	def unpdate_odometer(self,mileage):
+		if mileage >= self.odometer_reading:
+			self.odometer_reading = mileage
+		else:
+			print("You can't roll back an dometer!")
+
+	def increment_odometer(self,miles):
+		self.odometer_reading += miles
+
+	def fill_gas_tank(self):
+		print("This car doesn't need a gas tank!")
+
+class ElectricCar(Car): 
+	def __init__(self, make, model, year): 
+		""" 初始化父类的属性"""
+		super().__init__(make, model, year)
+		self.battery_size = 70
+
+	""" 定义子类的方法 """
+	def descript_battery(self):
+		print("This car has a " + str(self.battery_size))
+
+	""" 重写父类的方法 """
+	def fill_gas_tank(self):
+		print("Rewrite")
+
+my_tesla = ElectricCar(" tesla ","model s",2016)
+print(my_tesla.get_descriptive_name())
+my_tesla.descript_battery()
+my_tesla.fill_gas_tank()
+
+# 读取文件
+with open('read.txt') as file_object:
+	contents = file_object.read()
+	print(contents)
+
+# 逐行读取
+with open('read.txt') as file_object:
+	for line in file_object:
+		# rstrip方法可以删除字符串末尾的空白
+		print(line.rstrip())
+
+# 写入文件
+with open('write.txt', 'w') as file_object:
+	file_object.write("I lova programming")
+
+# 异常处理
+try:
+	print(5/0)
+except ZeroDivisionError:
+	print("You can't divide zero!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
